@@ -20,7 +20,6 @@ const Auth = () => {
 			// ログイン
 			const doLogin = async() => {
 				try {
-					debugger;
 					await login(name, password)
 					navigate("/search")
 				} catch(err) {
@@ -38,7 +37,6 @@ const Auth = () => {
 			// 登録
 			const doSignup = async() => {
 				try {
-					debugger;
 					await signup(name, password)
 					await login(name, password)
 					navigate("/search")

@@ -58,7 +58,6 @@ const Character = () => {
 
 	const registerStar = async(character_id, evaluation) => {
 		try {
-			debugger;
 			const {data} = await axios.post(
 				`${process.env.REACT_APP_API_URL}/favorites`,
 				{
@@ -80,7 +79,6 @@ const Character = () => {
 
 	const updateStar = async(character_id, evaluation) => {
 		try {
-			debugger;
 			const {data} = await axios.put(
 				`${process.env.REACT_APP_API_URL}/favorites/${character_id}`,
 				{
@@ -101,12 +99,10 @@ const Character = () => {
 
 	useEffect(() => {
 		const initFunc = async() => {
-			debugger
 			const getCharacterResponse = await getCharacter(allCharacterURL);
 			setPrevURL(getCharacterResponse.info.previousPage);
 			setNextURL(getCharacterResponse.info.nextPage);
 			setCharacterData(getCharacterResponse.data);
-			console.log(getCharacterResponse.data);
 			await getAllStarByUser();
 			setIsLoad(false);
 		};

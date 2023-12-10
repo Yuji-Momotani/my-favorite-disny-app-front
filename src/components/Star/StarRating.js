@@ -7,7 +7,7 @@ const StarRating = ({starState, characterId}) => {
 	const {registerStar, updateStar} = useContext(ClickStarFuncContext);
 	const {setAllStarData} = useContext(StarStateContext);
 	const {selectStar, setSelectStar} = starState
-	const {isRegistConnect, setIsRegistConnect} = useState(false)
+	const [isRegistConnect, setIsRegistConnect] = useState(false)
 
 	const clickStar = async(evaluation) => {
 		if (isRegistConnect) {
@@ -15,7 +15,6 @@ const StarRating = ({starState, characterId}) => {
 		}
 		setIsRegistConnect(true)
 		let registData = {}
-		debugger;
 		if (selectStar > 0) {
 			// 元の星の数が1以上なら更新
 			registData = await updateStar(characterId, evaluation)

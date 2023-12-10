@@ -7,16 +7,15 @@ const DispCharacter = ({dispStarNum, characterData}) =>  {
 	const {allStarData} = useContext(StarStateContext)
 
 	useEffect(() => {
-		debugger
 		if (dispStarNum === 0) {
 			// 全て表示
 			setDispCharacterData(characterData)
 		} else {
 			// フィルタリングして表示
 			const filterAllStarData = allStarData.filter(s => s.evaluation === dispStarNum)
-			const filterCharacterData = characterData.filter(c => filterAllStarData.findIndex(data => {
-				return data.character_id === c._id
-			}) > 0)
+			const filterCharacterData = characterData.filter(c => 
+				filterAllStarData.findIndex(data => 
+					data.character_id === c._id) > -1)
 			setDispCharacterData(filterCharacterData)
 		}
 		
