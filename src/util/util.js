@@ -1,6 +1,6 @@
 export const getCharacter = (url) => {
 	return new Promise((resolve, reject) => {
-		fetch(url).then(resp => {
+		fetch(url.replace("http://", "https://")).then(resp => {
 			if (!resp.ok) {
 				return reject("APIの取得に失敗しました。(getCharacter)")
 			}
